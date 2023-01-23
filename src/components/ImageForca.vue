@@ -13,7 +13,7 @@ const props = defineProps(['errors']);
         <rect width="1" height="35" x="24" y="124" transform="rotate(-45)" v-show="errors>=4" />
         <rect width="1" height="35" x="147" y="44" transform="rotate(30)" v-show="errors>=5" />
         <rect width="1" height="35" x="35" y="150" transform="rotate(-30)" v-show="errors>=6" />
-        <g v-show="errors>=7">
+        <g v-show="errors>=6">
             <rect width="1" height="10" x="38" y="97" transform="rotate(-45)" />
             <rect width="1" height="10" x="101" y="-43" transform="rotate(45)" />
             <rect width="1" height="10" x="47" y="106" transform="rotate(-45)" />
