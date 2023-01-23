@@ -24,7 +24,7 @@ function keyPressed(event) {
   <HeaderForca />
   <ImageForca :errors="errors" />
   <WordForca :word="secretWord" :right="right" />
-  <KeyboardForca :right="right" :wrong="wrong" @letter-press="keyPressed" />
+  <KeyboardForca :right="right" :wrong="wrong" @letter-press="keyPressed" v-show="errors<6"/>
 </template>
 
 <style lang="scss">
