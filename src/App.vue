@@ -5,12 +5,17 @@ import ImageForca from './components/ImageForca.vue';
 import WordForca from './components/WordForca.vue';
 import KeyboardForca from './components/KeyboardForca.vue';
 
-const right = ref(['A','D','X','G','R','J','E','K']);
-const wrong = ref(['Q','P','S','O']);
+const right = ref([]);
+const wrong = ref([]);
 const errors = computed(() => wrong.value.length);
+const secretWord = 'GLAYDSON';
 
-function teste(event) {
-  console.log(event);
+function keyPressed(event) {
+  if (secretWord.includes(event) && !right.value.includes(event)) {
+    right.value.push(event);
+  } else if (!wrong.value.includes(event)) {
+    wrong.value.push(event);
+  }
 }
 
 </script>
@@ -19,7 +24,7 @@ function teste(event) {
   <HeaderForca />
   <ImageForca :errors="errors" />
   <WordForca />
-  <KeyboardForca :right="right" :wrong="wrong" @letter-press="teste"/>
+  <KeyboardForca :right="right" :wrong="wrong" @letter-press="keyPressed" />
 </template>
 
 <style lang="scss">
