@@ -23,7 +23,7 @@ function keyPressed(event) {
 <template>
   <HeaderForca />
   <ImageForca :errors="errors" />
-  <WordForca />
+  <WordForca :word="secretWord" :right="right" />
   <KeyboardForca :right="right" :wrong="wrong" @letter-press="keyPressed" />
 </template>
 
