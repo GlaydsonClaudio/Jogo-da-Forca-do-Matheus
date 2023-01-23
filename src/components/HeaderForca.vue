@@ -1,6 +1,3 @@
-<script setup>
-
-</script>
 <template>
 <section class="header-forca">
     <div class="title1">
@@ -23,7 +20,6 @@
         font-size: 2.5rem;
         width: 6rem;
         text-align: center;
-        
     }
 
     & .title2 {
@@ -35,6 +31,5 @@
     & .title3 {
         font-size: 4.3rem;
     }
-
 }
 </style>

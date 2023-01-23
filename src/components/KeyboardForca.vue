@@ -6,8 +6,6 @@ const keys = [
     ['N','O','P','Q','R','S','T'],
     ['U','V','W','X','Y','Z']
 ];
- 
-// console.log(props.letters);
 </script>
 <template>
 <section class="keyboard-forca">
@@ -35,17 +33,17 @@ const keys = [
         & .keyboard {
             width: 100%;
             height: 100%;
-            background-color: lightgrey;
-            border: solid 1px gray;
+            background-color: #d3d3d3;
+            border: solid 1px #808080;
             font-size: 2rem;
             color: #404040;
 
             &.success {
-                background-color: green;
+                background-color: #008000;
             }
 
             &.error {
-                background-color: red;
+                background-color: #ff0000;
             }
         }
     }
