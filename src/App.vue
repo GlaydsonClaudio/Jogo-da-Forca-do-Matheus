@@ -5,14 +5,44 @@ import ImageForca from './components/ImageForca.vue';
 import WordForca from './components/WordForca.vue';
 import KeyboardForca from './components/KeyboardForca.vue';
 import Restart from './components/Restart.vue';
-import NotificationWinner from './components/NotificationWinner.vue';
+import Notification from './components/Notification.vue';
 
 const words = [
-   'GLAYDSON',
-   'RARINE',
-   'MATHEUS',
-   'JOAO',
-   'PEDRO'
+  'AMARELO',
+  'AMIGA',
+  'AMOR',
+  'AVE',
+  'BOLO',
+  'BRANCO',
+  'CAMA',
+  'CANECA',
+  'CELULAR',
+  'CLUBE',
+  'COPO',
+  'DOCE',
+  'ELEFANTE',
+  'ESCOLA',
+  'ESTOJO',
+  'FACA',
+  'FOTO',
+  'GARFO',
+  'GELEIA',
+  'GIRAFA',
+  'JANELA',
+  'JOAO',
+  'LIMONADA',
+  'MATHEUS',
+  'MEIA',
+  'NOITE',
+  'OVO',
+  'PAI',
+  'PARQUE',
+  'PASSARINHO',
+  'PEDRO',
+  'PEIXE',
+  'PIJAMA',
+  'RATO',
+  'UMBIGO'
 ];
 
 function choiceWord()
@@ -31,7 +61,6 @@ function lettersIn(inWord)
 {
     inWord = inWord.split('');
     let withoutRepeat = inWord.filter((el, i) => inWord.indexOf(el) === i);
-    console.log(withoutRepeat);
     return withoutRepeat.length;
 }
 
@@ -39,13 +68,8 @@ let lettersInSecretWord = lettersIn(secretWord);
 
 const playing = ref(true);
 watch([errors,rightComputed],() => {
-    console.log(errors.value)
-    console.log(lettersInSecretWord)
-    console.log(rightComputed.value)
-    playing.value = (errors.value < 6 && rightComputed.value < lettersInSecretWord)
-    console.log(playing.value)
-    console.log('===========')
-  });
+    playing.value = (errors.value < 6 && rightComputed.value < lettersInSecretWord);
+});
 
 
 function keyPressed(event) {
@@ -62,17 +86,13 @@ function restart() {
   right.value = [];
   wrong.value = [];
 }
-
 </script>
 
 <template>
   <HeaderForca />
   <ImageForca :errors="errors" />
   <WordForca :word="secretWord" :right="right" />
-  <KeyboardForca :right="right" :wrong="wrong" @letter-press="keyPressed" v-show="playing" />
-  <Restart @restart="restart" v-show="!playing" />
-  <NotificationWinner />
+  <KeyboardForca :right="right" :wrong="wrong" @letter-press="keyPressed" v-if="playing" />
+  <Restart @restart="restart" v-if="!playing" />
+  <Notification :winner="errors < 6" v-if="!playing" />
 </template>
-
-<style lang="scss">
-</style>

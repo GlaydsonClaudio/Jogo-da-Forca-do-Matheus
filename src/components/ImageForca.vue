@@ -4,16 +4,16 @@ const props = defineProps(['errors']);
 <template>
 <section class="image-forca">
     <svg viewBox="0 0 130 150" xmlns="http://www.w3.org/2000/svg" style="fill:#000000">
-        <g style="fill:none;stroke:#000000;stroke-width:1;" v-show="errors>=1">
+        <g style="fill:none;stroke:#000000;stroke-width:1;" v-if="errors>=1">
             <circle cx="105" cy="47" r="15" />
             <rect width="1" height="7" x="105" y="25" />
         </g>
-        <rect width="1" height="50" x="105" y="62" v-show="errors>=2" />
-        <rect width="1" height="35" x="124" y="-25" transform="rotate(45)" v-show="errors>=3" />
-        <rect width="1" height="35" x="24" y="124" transform="rotate(-45)" v-show="errors>=4" />
-        <rect width="1" height="35" x="147" y="44" transform="rotate(30)" v-show="errors>=5" />
-        <rect width="1" height="35" x="35" y="150" transform="rotate(-30)" v-show="errors>=6" />
-        <g v-show="errors>=6">
+        <rect width="1" height="50" x="105" y="62" v-if="errors>=2" />
+        <rect width="1" height="35" x="124" y="-25" transform="rotate(45)" v-if="errors>=3" />
+        <rect width="1" height="35" x="24" y="124" transform="rotate(-45)" v-if="errors>=4" />
+        <rect width="1" height="35" x="147" y="44" transform="rotate(30)" v-if="errors>=5" />
+        <rect width="1" height="35" x="35" y="150" transform="rotate(-30)" v-if="errors>=6" />
+        <g v-if="errors>=6">
             <rect width="1" height="10" x="38" y="97" transform="rotate(-45)" />
             <rect width="1" height="10" x="101" y="-43" transform="rotate(45)" />
             <rect width="1" height="10" x="47" y="106" transform="rotate(-45)" />
